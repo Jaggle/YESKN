@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+
+    {% if photos is empty %}
+        <p style="text-align: center"> there is no photo</p>
+    {% else %}
+        {% for photo in photos %}
+            <div style="width: 25%;float: left">
+                <a href="#photoViewModal"  class="photoViewModal">
+                    <img src="/uploads/photos/{{ photo.path }}" alt=""  class="img-polaroid" width="100%" height="100%">
+                </a>
+                <p style="text-align: center">{{ photo.name }}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('admin_photo_delete',{'id':photo.id}) }}">删除</a>
+                    {% endif %}
+                </p>
+            </div>
+        {% endfor %}
+
+        <div class="modal fade" id="photoViewModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title"><i class="fa fa-photo"></i> {{ '图片浏览' }}</h4>
+                    </div>
+
+                    <div class="modal-body" style="text-align: center">
+                        <img src="" alt="" id="modal-img" style="max-width: 100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <div class="section actions">
+        <a href="{{ path('admin_photo_upload') }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-plus"></i> Upload New Photo
+        </a>
+    </div>
+
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+
+
+{% endblock %}
+
+{% block javascripts %}
+   {{  parent() }}
+    <script>
+        $(".photoViewModal").click(function(){
+            $("#modal-img").attr('src',$(this).children('img').attr('src'));
+            $("#photoViewModal").modal();
+        });
+
+    </script>
+{% endblock %}

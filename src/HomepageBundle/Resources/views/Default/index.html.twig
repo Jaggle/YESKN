@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>YESKN.COM | 夜色空凝</title>
+    <script>
+        var loadingDiv = document.createElement("div");
+        loadingDiv.setAttribute('class','loading');
+        loadingDiv.style.position = 'fixed';
+        loadingDiv.style.top = '45%';
+        loadingDiv.style.left = '50%';
+        loadingDiv.style.marginLeft = '-64px';
+        var imgNode = document.createElement('img');
+        imgNode.setAttribute('src','https://static.yeskn.com/loading.gif');
+        imgNode.setAttribute('alt','正在加载...');
+        var html = document.getElementsByTagName('html')[0];
+        loadingDiv.insertBefore(imgNode,null);
+        html.insertBefore(loadingDiv,null);
+    </script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon">
+    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon" type="image/png" >
+    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon-precomposed" type="image/png" >
+    <link href="{{ asset('bundles/homepage/css/index.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://static.yeskn.com/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('lib/eds-ui/dist/css/edsUI.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+<div class="the-content"  {% if first_sight ==  true %}style="display: none;"{% endif %} >
+    <div id="wrapper">
+        <h1>YESKN | <a href="{{ path('homepage_default_resume') }}">about</a></h1>
+        <h2>Life so fuck, I'm Writing PHP.
+        </h2>
+
+        <div id="icon-link">
+            <a href="mailto:admin@yeskn.com"><i class="fa fa-envelope-o"></i></a>
+            <a href="http://github.com/jaggle"><i class="fa fa-github"></i></a>
+			<a href="https://www.instagram.com/jj.style"><i class="fa fa-instagram"></i></a>
+			<a href="javascript:void (0);"><i class="fa fa-wechat"></i></a>
+        </div>
+    </div>
+
+    <div class="post-list">
+
+        <p><a href="http://blog.yeskn.com">古老的wordpress博客</a></p>
+
+        <p><a href="http://repo.yeskn.com">私有git服务</a></p>
+
+        <p><a href="{{ path('service_default_index') }}">services</a></p>
+
+        <p><a href="http://yeskn.com:2333">聊天室</a></p>
+
+        <p><a href="http://7000media.yeskn.com">柒仟</a></p>
+
+        <p><a href="{{ path('blog_index') }}">symfony 呆萌[demo]</a></p>
+        
+		<p><a href="http://ch.yeskn.com">夜色空凝 - 彩虹</a></p>
+
+    </div>
+
+
+    <canvas width="1478" height="884"></canvas>
+
+    <script>
+        //window.ontouchstart = function(e) { e.preventDefault(); };
+        document.addEventListener('mousemove', function (e) {
+            e.preventDefault()
+        })
+        var c = document.getElementsByTagName('canvas')[0],
+                x = c.getContext('2d'),
+                pr = window.devicePixelRatio || 1,
+                w = window.innerWidth,
+                h = window.innerHeight,
+                f = 90,
+                q,
+                m = Math,
+                r = 0,
+                u = m.PI * 2,
+                v = m.cos,
+                z = m.random
+        c.width = w * pr
+        c.height = h * pr
+        x.scale(pr, pr)
+        x.globalAlpha = 0.6
+        function i() {
+            x.clearRect(0, 0, w, h)
+            q = [{x: 0, y: h * .7 + f}, {x: 0, y: h * .7 - f}]
+            while (q[1].x < w + f) d(q[0], q[1])
+        }
+        function d(i, j) {
+            x.beginPath()
+            x.moveTo(i.x, i.y)
+            x.lineTo(j.x, j.y)
+            var k = j.x + (z() * 2 - 0.25) * f
+                    ,
+                    n = y(j.y)
+            x.lineTo(k, n)
+            x.closePath()
+            r -= u / -50
+            x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+            x.fill()
+            q[0] = q[1]
+            q[1] = {x: k, y: n}
+        }
+        function y(p) {
+            var t = p + (z() * 2 - 1.1) * f
+            return (t > h || t < 0) ? y(p) : t
+        }
+        document.onclick = i
+        document.ontouchstart = i
+        i()
+    </script>
+
+    <div class="foots" style="">
+
+        <p>
+
+       <span>
+            <a href="{{ path('homepage_default_index' , {'redirect':'https://google.com'}) }}" target="_blank">
+                <img src="https://static.yeskn.com/google-logo-20x20.jpg" alt="" width="20px" height="20px">
+            </a>
+    </span>
+
+        <span>
+            <a href="{{ path('homepage_default_index',{'redirect':'http://symfony.com'}) }}" target="_blank">
+                <img src="https://static.yeskn.com/symfony_black_03.png" alt="" width="20px" height="20px">
+            </a>
+        </span>
+
+            {# <span>
+                 <a href="http://php.net/" target="_blank">
+                     <img src="{{ path('homepage_default_logo') }}" alt="" width="50px" height="40px">
+                 </a>
+         </span>#}
+
+            <span>
+
+                <a href="{{ path('homepage_default_index',{'redirect':'http://www.cnzz.com/stat/website.php?web_id=5377316'}) }}" target="_blank" title="站长统计">
+                    <img border="0" hspace="0" vspace="0" src="https://static.yeskn.com/cnzz.gif">
+
+                </a>
+            </span>
+
+          <span >
+            <a style="position: relative;top: -5px" href="{{ path('homepage_default_index',{'redirect':'http://www.miitbeian.gov.cn/publish/query/indexFirst.action'}) }}" target="_blank">
+                鄂ICP备15018755号
+            </a>
+    </span>
+        </p>
+    </div>
+</div>
+
+<script src="https://static.yeskn.com/jquery.min.js"></script>
+<script src="{{ asset('lib/eds-ui/dist/js/edsUI.js') }}"></script>
+
+<script>
+    $(function(){
+        $('.loading').remove();
+        {%  if first_sight == true  %}
+            $('.the-content').fadeIn(1000);
+        {% endif %}
+
+        /**
+         * wechat icon click event
+         *
+         */
+        $(document).on('click', '.fa-wechat', function() {
+            edsUI.html('wechat', $('#wechat-modal').html());
+        })
+
+    })
+</script>
+<script type='text/html' id="wechat-modal">
+    <div style="text-align: center" id="qrCodeModal">
+        <img src="https://static.yeskn.com/wechat.jpg" width=300 height=300 alt="微信扫一扫">
+        <p>请使用微信扫描上面的二维码</p>
+        <p>this modal was generated by <a target="_blank" href="https://github.com/Jaggle/eds-ui">EdsUI</a></p>
+     </div>
+</script>
+
+</body>
+</html>

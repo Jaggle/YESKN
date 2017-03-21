@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>notes | YESKN.COM</title>
+    </head>
+    <body>
+    <h1>this is all the notes:</h1>
+
+    <div class="note-list">
+        <ul>
+            {% for item in list %}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    </body>
+</html>

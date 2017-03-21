@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="form-group hidden">
+        <input type="file" id="img" name="img" class="form-control">
+    </div>
+
+    <button class="btn btn-default" id="upload">上传</button>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/ajaxfileupload.js') }}"></script>
+    <script>
+        $("button").click(function(){
+            var img = $("#img");
+            img.trigger('click');
+            img.on('change',function(){
+                $.ajaxFileUpload({
+                    url:'{{ path('test_ajax') }}',
+                    secureuri:false,
+                    fileElementId: 'img',
+                    dataType: 'json',
+                    data: 'data',
+                    success: function(result){
+                      $('button#upload').after("<img src='"+result.img+"' />");
+                    },
+                    error: function (data, status, e) {
+                        alert(e);
+                    }
+                })
+            })
+        })
+    </script>
+{% endblock %}

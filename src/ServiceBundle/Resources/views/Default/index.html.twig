@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>service</title>
+
+    <style>
+        p a{
+            display: inline-block;
+            min-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p>一些简单的有意思的小服务，希望能对您有所帮助！</p>
+
+    <p><a href="{{ path('service_default_ip') }}">get your ip</a>- 命令行使用 "curl service.yeskn.com/ip" </p>
+    <p><a href="http://git.yeskn.com">private git cloud </a>- 基于gitlab的私人git服务器</p>
+    <p><a href="{{ path('service_default_randomcommit') }}">random string </a>- 当你不会写commit message 的时候，这可能有所帮助</p>
+    <p><a href="{{ path('service_default_images') }}">random color image</a>- 生成一张随机图片</p>
+    <p><a href="{{ path('service_notes_index') }}">the plain notes</a>- 一些简单的纯文本的笔记</p>
+</body>
+</html>

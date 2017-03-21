@@ -1,0 +1,38 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type:     annotation
+    prefix:   /demo
+    #prefix:   /{_locale}
+    #host:      demo.yeskn.com
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locale: '%locale%'
+
+homepage:
+    resource: "@HomepageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    #host:     yeskn.com
+
+service:
+    resource: "@ServiceBundle/Controller/"
+    type:     annotation
+    #host:     service.yeskn.com
+    prefix:   /service
+
+
+_wdt:
+    resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
+    prefix:   /_wdt
+
+_profiler:
+    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+    prefix:   /_profiler
+
+_errors:
+    resource: "@TwigBundle/Resources/config/routing/errors.xml"
+    prefix:   /_error
+
+#_main:
+#    resource: routing.yml
