@@ -10,7 +10,7 @@ imports:
 framework:
     assets:
         base_urls:
-            - 'https://static.yeskn.com/'
+            - 'https://static.yeskn.com/yeskn-home/'
 
 monolog:
     handlers:
