@@ -9,7 +9,7 @@ app:
         _locale: '%locale%'
 
 homepage:
-    resource: "@HomepageBundle/Controller/"
+    resource: "@HomeBundle/Controller/"
     type:     annotation
     prefix:   /
     host:     yeskn.com

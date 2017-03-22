@@ -1,12 +1,15 @@
 <?php
+
 /**
- *  THIS IS MY BLOG SOURCE CODE, YOU CAN USE IS FREE BUT CAN'T DO SOMETHING BAD FROM IT.
- * @author Jake
- * @email  singviy@gmail.com
- * @site   https://yeskn.com
+ * This file is part of the Geekerism package.
+ *
+ * (c) Jaggle <jaggle@yeskn.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace HomepageBundle\Controller;
+namespace HomeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -31,7 +34,7 @@ class DefaultController extends Controller
             return $this->redirect($redirectUrl);
 
         $arr['first_sight'] = !!!$request->cookies->get('first_sight_token');
-        $response = $this->render('HomepageBundle:Default:index.html.twig',$arr);
+        $response = $this->render('HomeBundle:Default:index.html.twig',$arr);
         if($arr['first_sight']){
             $cookie = new Cookie('first_sight_token',md5(uniqid()));
             $response->headers->setCookie($cookie);
@@ -46,7 +49,7 @@ class DefaultController extends Controller
      */
     public function resumeAction()
     {
-        return $this->render('HomepageBundle:Default:resume.html.twig');
+        return $this->render('HomeBundle:Default:resume.html.twig');
     }
 
     /**
@@ -56,16 +59,16 @@ class DefaultController extends Controller
      */
     public function lagouAction()
     {
-        return $this->render('HomepageBundle:Default:lagou.html.twig');
+        return $this->render('HomeBundle:Default:lagou.html.twig');
     }
-	
-	/**
-	 * PHP 的LOGO
-	 *
-	 * @Route("/image.action/logo.php")
-	 * @param Request $request
-	 * @return Response
-	 */
+    
+    /**
+     * PHP 的LOGO
+     *
+     * @Route("/image.action/logo.php")
+     * @param Request $request
+     * @return Response
+     */
     public function logoAction(Request $request)
     {
         if($request->getHost() == 'yeskn.dev')
@@ -77,5 +80,5 @@ class DefaultController extends Controller
             'Content-Type' => 'image/svg+xml'
         ));
     }
-	
+    
 }

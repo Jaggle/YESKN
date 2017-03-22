@@ -1,6 +1,6 @@
 {
-    "name": "jake/yeskn.new.project",
-    "license": "proprietary",
+    "name": "jaggle/yeskn-home",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -59,7 +59,7 @@
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
+        "symfony-tests-dir": "app/tests",
         "symfony-assets-install": "relative"
     }
 }

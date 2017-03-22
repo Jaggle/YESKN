@@ -76,7 +76,7 @@ doctrine:
                 connection: default
                 mappings:
                     AppBundle:  ~
-                    HomepageBundle: ~
+                    HomeBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
