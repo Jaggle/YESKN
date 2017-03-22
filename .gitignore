@@ -16,7 +16,8 @@
 
 
 /app/bootstrap.php.cache
-/bin/
+/bin/*
+!/bin/server
 
 .idea
 
@@ -24,3 +25,4 @@
 web/challenges
 web/lib
 web/uploads
+

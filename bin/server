@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+
+<?php
+
+use Workerman\Worker;
+use PHPSocketIO\SocketIO;
+use Symfony\Component\Debug\Debug;
+
+include __DIR__ .  '/../vendor/autoload.php';
+
+define('GLOBAL_START', 1);
+
+$uidConnectionMap = array();
+
+$last_online_count = $last_online_page_count = 0;
+
+Debug::enable();
+$kernel = new AppKernel('dev', true);
+$kernel->loadClassCache();
+$kernel->boot();
+
+$container = $kernel->getContainer();
+
+$socketPort = $container->getParameter('socket.port');
+$socketIO = new SocketIO($socketPort);
+
+$socketIO->on('connection', 'ImBundle\Foundation\SocketServer\SocketIO::connect');
+$socketIO->on('workerStart', 'ImBundle\Foundation\SocketServer\SocketIO::workerStart');
+
+
+Worker::runAll();
