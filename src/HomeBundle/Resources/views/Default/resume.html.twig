@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <title>刘杰的个人简历</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('bundles/homepage/css/main.css') }}" type="text/css">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('bundles/home/css/main.css') }}" type="text/css">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
@@ -18,7 +16,7 @@
             <h1><a href='/'>刘杰的个人简历 <i class="fa fa-hand-o-left"></i></a></h1>
             <h3 class="date">2016年06月22日</h3>
 
-            <p class="lagou"><a href="{{ path('homepage_default_lagou') }}">拉勾版本</a></p>
+            <p class="lagou"><a href="{{ path('home_default_lagou') }}">拉勾版本</a></p>
             <div class="content">
 
                 <h2 id="section">联系方式</h2>
@@ -121,7 +119,7 @@
         </div>
         <div>
             <p ><i class="fa  fa-mail-reply"></i>
-                <a style="color: #f66" href="{{ path('homepage_default_index') }}">返回首页</a></p>
+                <a style="color: #f66" href="{{ path('home_default_index') }}">返回首页</a></p>
         </div>
         <div id="disqus_thread">
 
