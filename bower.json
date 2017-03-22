@@ -1,0 +1,21 @@
+{
+  "name": "yeskn-home",
+  "homepage": "https://github.com/Jaggle/yeskn.com-source-code",
+  "authors": [
+    "Jaggle <singviy@gmail.com>"
+  ],
+  "description": "yeskn-home project static dependencies",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+	"eds-ui": "v1.0.1" 
+  }
+}
