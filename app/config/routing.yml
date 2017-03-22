@@ -1,7 +1,8 @@
 im:
     resource: "@ImBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /im
+    host:     
 
 app:
     resource: '@AppBundle/Controller/'
@@ -13,7 +14,7 @@ app:
     defaults:
         _locale: '%locale%'
 
-homepage:
+home:
     resource: "@HomeBundle/Controller/"
     type:     annotation
     prefix:   /

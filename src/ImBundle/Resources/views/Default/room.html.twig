@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>global room</title>
+    <link rel="stylesheet" href="https://static.yeskn.com/bootstrap.min.css">
+    <link rel="stylesheet" href="http://s.workerman.net/layui/css/layui.css">
+    <script src="https://static.yeskn.com/jquery.min.js"></script>
+    <script src='https://static.yeskn.com/socket.io.js'></script>
+    <script src="https://static.yeskn.com/notify.js"></script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style>
+
+        body{
+            margin: 10px;
+        }
+
+        .bubbles-box {
+            width: 100%;
+            height: 80vh;
+            overflow-y: scroll;
+        }
+
+        .input-box {
+            height: 20vh;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            border: 1px solid #ddd;
+            box-sizing: content-box;
+        }
+
+        .input {
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 70%;
+            height: 20vh;
+            border: 1px solid #ddd;
+            box-sizing: content-box;
+        }
+        .input:focus{
+            outline: none;
+            border: 1px solid #00acd6;
+        }
+
+
+
+        .input-box .input-submit {
+            color: #fff;
+            text-align: center;
+            line-height: 20vh;
+            font-size: 16px;
+            margin: 0 auto;
+            height: 20vh;
+            background: #5FB878;
+        }
+
+        .input-box .input-submit:hover{
+            cursor: pointer;
+            background: #4cae4c;
+        }
+
+        .layim-chat-mine img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .input-left {
+            position: absolute;
+            height: 20vh;
+            right: 0;
+            width: 30%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="bubbles-box">
+    <div class="layim-chat-main">
+        <ul>
+
+        </ul>
+    </div>
+</div>
+
+<div class="input-box">
+    <div class="input" contenteditable="true">
+请输入...
+    </div>
+
+    <div class="input-left">
+        <div class="input-submit">
+            提交
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        var uid = new Date();
+
+
+        var socket = io('http://'+document.domain+':2120');
+
+        socket.on('connect', function(){
+            socket.emit('login', uid.toDateString());
+        });
+
+        socket.on('new_msg', function(msg){
+            console.log('new message', msg);
+            $('#content').html('收到消息：'+msg);
+         //   $('.notification.sticky').notify();
+
+            $(".layim-chat-main ul").append(' <li class="layim-chat-mine"><div class="layim-chat-user"><img src="http://q.qlogo.cn/qqapp/101343857/8E667BB22C4E5FD34845ED1888B12060/100"></div><div class="layim-chat-text">'+msg+'</div></li>');
+
+        });
+
+        socket.on('update_online_count', function(online_stat){
+            $('#online_box').html(online_stat);
+        });
+
+        $('.input-submit').click(function () {
+            var $in = $('.input');
+            socket.emit('new_msg', $in.text());
+            $in.text('');
+        });
+    });
+</script>
+
+</body>
+</html>
