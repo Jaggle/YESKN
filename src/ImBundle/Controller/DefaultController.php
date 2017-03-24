@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ImBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,6 +25,6 @@ class DefaultController extends Controller
 	 */
 	public function roomAction()
 	{
-		return $this->render('@App/Default/room2.html.twig');
+		return $this->render('@Im/Default/room2.html.twig');
 	}
 }

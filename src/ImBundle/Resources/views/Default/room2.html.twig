@@ -21,13 +21,13 @@
         #list dd{overflow:hidden;padding:5px 0}
         #list dd li{overflow:hidden}
         #list dd .nick-name{padding:5px;color:#999}
-        #list dd .head-icon{float:left;margin:0 5px;width:30px;height:30px;border-radius:5px;background:url({{ asset('bundles/app/icons/user_a.png') }}) no-repeat center center;background-size:cover}
+        #list dd .head-icon{float:left;margin:0 5px;width:30px;height:30px;border-radius:5px;background:url({{ asset('bundles/im/icons/user_a.png') }}) no-repeat center center;background-size:cover}
         #list dd .text{position:relative;float:left;padding:6px 10px;max-width:60%;min-height:30px;border:1px solid #ccc;border-radius:3px;background-color:#fff;color:#333;word-wrap:break-word}
         #list dd .text:before{position:absolute;top:10px;width:0;height:0;content:''}
         #list dd.me .text:before{right:-4px;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:5px solid #8CC63E}
         #list dd.other .text:before{left:-4px;width:5px;height:5px;border-bottom:1px solid #ccc;border-left:1px solid #ccc;background-color:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
         #list dd.me .nick-name{display:none;text-align:right}
-        #list dd.me .head-icon{float:right;background-image:url({{ asset('bundles/app/icons/user_b.png') }})}
+        #list dd.me .head-icon{float:right;background-image:url({{ asset('bundles/im/icons/user_b.png') }})}
         #list dd.me .text{float:right;border:0;background-color:#8CC63E}
         .placeholder.footer{height:50px}
     </style>
@@ -38,9 +38,9 @@
 <dl id="list"></dl>
 <div id="option"><input type="text" id="keywords" autofocus/><input type="button" name="" id="send" value="发送"/></div>
 <div class="placeholder footer"></div>
-<script src="{{ asset('bundles/app/socket.io.js') }}"></script>
+<script src="{{ asset('bundles/im/socket.io.js') }}"></script>
 <script>
-    var socket = io.connect('http://114.215.88.108:2120');
+    var socket = io.connect('https://yeskn.com:2120');
 
     var userInfo = {
         username: (function () {

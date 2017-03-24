@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jake
- * Date: 2016/12/28
- * Time: 21:39
- */
 
-namespace AppBundle\Controller\Admin;
+namespace ImBundle\Controller\Admin;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
