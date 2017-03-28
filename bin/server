@@ -24,7 +24,7 @@ $container = $kernel->getContainer();
 $socketPort = $container->getParameter('socket.port');
 $socketIO = new SocketIO($socketPort);
 
-$socketIO->on('connection', 'ImBundle\Foundation\SocketServer\SocketIO::connect');
+$socketIO->on('connection', 'ImBundle\Foundation\SocketServer\SocketIO::connect', $container);
 $socketIO->on('workerStart', 'ImBundle\Foundation\SocketServer\SocketIO::workerStart');
 
 

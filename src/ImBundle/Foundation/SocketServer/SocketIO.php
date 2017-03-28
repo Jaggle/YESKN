@@ -1,16 +1,31 @@
 <?php
 
+/**
+ * this file is part of Maxcho Project
+ *
+ */
 namespace ImBundle\Foundation\SocketServer;
 
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Workerman\Worker;
 use Workerman\Lib\Timer;
 use PHPSocketIO\Socket;
 use Workerman\Connection\ConnectionInterface;
 
+/**
+ * Class SocketIO
+ * @package ImBundle\Foundation\SocketServer
+ */
 class SocketIO
 {
-    public static function connect(Socket $socket)
+    public static function connect(Socket $socket, ContainerInterface $container)
     {
+        
+        var_dump($container);
+        /**
+         * 用户登录事件
+         *
+         */
         $socket->on('login', function ($data) use ($socket) {
             global $uidConnectionMap, $last_online_count, $last_online_page_count;
             global $socketIO;
@@ -34,12 +49,28 @@ class SocketIO
 
             $socketIO->emit('update_online_count', "当前<b>{$last_online_count}</b>人在线，共打开<b>{$last_online_page_count}</b>个页面");
         });
-
+    
+        /**
+         * 用户注册
+         *
+         */
+        $socket->on('register', function ($data) {
+        
+        });
+    
+        /**
+         * 用户发言
+         *
+         */
         $socket->on('say', function ($content) use ($socket) {
             global $socketIO;
             $socketIO->emit('broadcast_say', $content);
         });
-
+    
+        /**
+         * 退出登录
+         *
+         */
         $socket->on('disconnect', function () use ($socket) {
             if (!isset($socket->uid)) {
                 return;
@@ -50,9 +81,12 @@ class SocketIO
                 unset($uidConnectionMap[$socket->uid]);
             }
         });
-
     }
-
+    
+    /**
+     * 启动一个web server, 用来主动推送消息给用户
+     *
+     */
     public static function workerStart()
     {
         $inner_http_worker = new Worker('http://0.0.0.0:2121');
