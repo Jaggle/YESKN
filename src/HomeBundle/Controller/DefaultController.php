@@ -57,8 +57,11 @@ class DefaultController extends Controller
      * 
      * @Route("/record.action/resume.html/lagou")
      */
-    public function lagouAction()
+    public function lagouAction(Request $request)
     {
+        if ($request->get('version') == 2) {
+            return $this->render('HomeBundle:Default:lagou_v2.html.twig');
+        }
         return $this->render('HomeBundle:Default:lagou.html.twig');
     }
     
