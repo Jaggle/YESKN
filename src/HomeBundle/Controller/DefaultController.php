@@ -21,40 +21,42 @@ class DefaultController extends Controller
 {
     /**
      * 网站首页
-     * 
+     *
      * @Route("/")
      * @param $request Request
      * @return Response
      */
     public function indexAction(Request $request)
     {
-       
         $redirectUrl = $request->query->get('redirect');
-        if($redirectUrl)
+        if ($redirectUrl)
             return $this->redirect($redirectUrl);
 
         $arr['first_sight'] = !!!$request->cookies->get('first_sight_token');
         $response = $this->render('HomeBundle:Default:index.html.twig',$arr);
-        if($arr['first_sight']){
-            $cookie = new Cookie('first_sight_token',md5(uniqid()));
+
+        if ($arr['first_sight']) {
+            $cookie = new Cookie('first_sight_token', md5(uniqid()));
             $response->headers->setCookie($cookie);
         }
+
         return $response;
     }
 
     /**
      * 我的简历
-     * 
+     *
      * @Route("/record.action/resume.html/i")
      */
     public function resumeAction()
     {
+        return new Response("I'm on working now, so my resume will not open this period, sorry.");
         return $this->render('HomeBundle:Default:resume.html.twig');
     }
 
     /**
      * 拉勾版简历
-     * 
+     *
      * @Route("/record.action/resume.html/lagou")
      */
     public function lagouAction(Request $request)
@@ -64,7 +66,7 @@ class DefaultController extends Controller
         }
         return $this->render('HomeBundle:Default:lagou.html.twig');
     }
-    
+
     /**
      * PHP 的LOGO
      *
@@ -83,5 +85,5 @@ class DefaultController extends Controller
             'Content-Type' => 'image/svg+xml'
         ));
     }
-    
+
 }
