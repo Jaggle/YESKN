@@ -64,6 +64,9 @@ class DefaultController extends Controller
         if ($request->get('version') == 2) {
             return $this->render('HomeBundle:Default:lagou_v2.html.twig');
         }
+        if ($request->get('version') == 3) {
+            return $this->render('HomeBundle:Default:lagou_v3.html.twig');
+        }
         return $this->render('HomeBundle:Default:lagou.html.twig');
     }
 
