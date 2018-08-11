@@ -5,116 +5,62 @@
     <title>YESKN.COM | 夜色空凝</title>
     <script>
         var loadingDiv = document.createElement("div");
-        loadingDiv.setAttribute('class','loading');
+        loadingDiv.setAttribute('class', 'loading');
         loadingDiv.style.position = 'fixed';
         loadingDiv.style.top = '45%';
         loadingDiv.style.left = '50%';
         loadingDiv.style.marginLeft = '-64px';
         var imgNode = document.createElement('img');
-        imgNode.setAttribute('src','https://static.yeskn.com/loading.gif');
-        imgNode.setAttribute('alt','正在加载...');
+        imgNode.setAttribute('src', 'https://static.yeskn.com/loading.gif');
+        imgNode.setAttribute('alt', '正在加载...');
         var html = document.getElementsByTagName('html')[0];
-        loadingDiv.insertBefore(imgNode,null);
-        html.insertBefore(loadingDiv,null);
+        loadingDiv.insertBefore(imgNode, null);
+        html.insertBefore(loadingDiv, null);
+
+        var FIRST_SIGHT = {{ first_sight ? 'true' : 'false' }};
     </script>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon">
-    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon" type="image/png" >
-    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon-precomposed" type="image/png" >
-    <link href="{{ asset('bundles/home/css/index.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/eds-ui/dist/css/edsUI.css') }}" rel="stylesheet">
+    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon" type="image/png">
+    <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon-precomposed" type="image/png">
+
+    {% stylesheets
+        'bundles/home/css/index.css'
+        'lib/font-awesome/css/font-awesome.min.css'
+        'lib/eds-ui/dist/css/edsUI.css'
+        filter='cssrewrite' %}
+
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 </head>
 
 <body>
 
-
-
-<div class="the-content"  {% if first_sight ==  true %}style="display: none;"{% endif %} >
+<div class="the-content" {% if first_sight ==  true %}style="display: none;"{% endif %} >
     <div id="wrapper">
         <h1>YESKN | <a href="{{ path('home_default_resume') }}">about</a></h1>
-        <h2 style="font-size:12px">这是一个最好的时代，这是一个最坏的时代</h2>
+        <h2 style="font-size:12px">To be a stronger indie development.</h2>
 
         <div id="icon-link">
             <a href="mailto:admin@yeskn.com"><i class="fa fa-envelope-o"></i></a>
-            <a href="http://github.com/jaggle"><i class="fa fa-github"></i></a>
-            <a href="https://www.instagram.com/jj.style"><i class="fa fa-instagram"></i></a>
+            <a href="http://github.com/jaggle" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.instagram.com/jj.style" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="javascript:void (0);"><i class="fa fa-wechat"></i></a>
-            <a href="https://t.me/final_explorer"><i class="fa fa-telegram"></i></a>
+            <a href="https://t.me/final_explorer" target="_blank"><i class="fa fa-telegram"></i></a>
         </div>
     </div>
 
     <div class="post-list">
-
-        <p><a href="http://blog.yeskn.com">夜色空凝</a></p>
-
-        <p><a href="http://www.geekerism.com">极客主义 - Geekerism</a></p>
-
-        <p><a href="https://www.wpcast.net">WPCast - 免费的wordpress博客托管</a></p>
-
-        <p><a href="https://www.vmoex.com">Vmoex - 二次元社区</a></p>
-
-        <p><a href="http://ch.yeskn.com">夜色空凝 - 彩虹</a></p>
-
-        <p><a href="{{ path('service_default_index') }}">services</a></p>
-
-        <p><a href="http://7000media.yeskn.com">柒仟</a></p>
-
-
+        <p><a href="https://blog.yeskn.com" target="_blank">夜色空凝</a></p>
+        <p><a href="https://www.geekerism.com" target="_blank">极客主义 - Geekerism</a></p>
+        <p><a href="https://www.wpcast.net" target="_blank">WPCast - 免费的wordpress博客托管</a></p>
+        <p><a href="https://www.vmoex.com" target="_blank">Vmoex - 二次元社区</a></p>
+        <p><a href="https://ch.yeskn.com" target="_blank">夜色空凝 - 彩虹</a></p>
+        <p><a href="{{ path('service_default_index') }}" target="_blank">services</a></p>
+        <p><a href="https://7000media.yeskn.com" target="_blank">柒仟</a></p>
     </div>
 
-
     <canvas width="1478" height="884"></canvas>
-
-    <script>
-        //window.ontouchstart = function(e) { e.preventDefault(); };
-        document.addEventListener('mousemove', function (e) {
-            e.preventDefault()
-        })
-        var c = document.getElementsByTagName('canvas')[0],
-                x = c.getContext('2d'),
-                pr = window.devicePixelRatio || 1,
-                w = window.innerWidth,
-                h = window.innerHeight,
-                f = 90,
-                q,
-                m = Math,
-                r = 0,
-                u = m.PI * 2,
-                v = m.cos,
-                z = m.random
-        c.width = w * pr
-        c.height = h * pr
-        x.scale(pr, pr)
-        x.globalAlpha = 0.6
-        function i() {
-            x.clearRect(0, 0, w, h)
-            q = [{x: 0, y: h * .7 + f}, {x: 0, y: h * .7 - f}]
-            while (q[1].x < w + f) d(q[0], q[1])
-        }
-        function d(i, j) {
-            x.beginPath()
-            x.moveTo(i.x, i.y)
-            x.lineTo(j.x, j.y)
-            var k = j.x + (z() * 2 - 0.25) * f
-                    ,
-                    n = y(j.y)
-            x.lineTo(k, n)
-            x.closePath()
-            r -= u / -50
-            x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
-            x.fill()
-            q[0] = q[1]
-            q[1] = {x: k, y: n}
-        }
-        function y(p) {
-            var t = p + (z() * 2 - 1.1) * f
-            return (t > h || t < 0) ? y(p) : t
-        }
-        document.onclick = i
-        document.ontouchstart = i
-        i()
-    </script>
 
     <div class="foots" style="">
 
@@ -126,28 +72,17 @@
             </a>
     </span>
 
-        <span>
+            <span>
             <a href="{{ path('home_default_index',{'redirect':'http://symfony.com'}) }}" target="_blank">
                 <img src="https://static.yeskn.com/symfony_black_03.png" alt="" width="20px" height="20px">
             </a>
         </span>
 
-            {# <span>
-                 <a href="http://php.net/" target="_blank">
-                     <img src="{{ path('homepage_default_logo') }}" alt="" width="50px" height="40px">
-                 </a>
-         </span>#}
 
             <span>
-
-                <a href="{{ path('home_default_index',{'redirect':'http://www.cnzz.com/stat/website.php?web_id=5377316'}) }}" target="_blank" title="站长统计">
-                    <img border="0" hspace="0" vspace="0" src="https://static.yeskn.com/cnzz.gif">
-
-                </a>
-            </span>
-
-          <span >
-            <a style="position: relative;top: -5px" href="{{ path('home_default_index',{'redirect':'http://www.miitbeian.gov.cn/publish/query/indexFirst.action'}) }}" target="_blank">
+            <a style="position: relative;top: -5px"
+               href="{{ path('home_default_index',{'redirect':'http://www.miitbeian.gov.cn/publish/query/indexFirst.action'}) }}"
+               target="_blank">
                 鄂ICP备15018755号
             </a>
     </span>
@@ -155,33 +90,18 @@
     </div>
 </div>
 
-<script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('lib/eds-ui/dist/js/edsUI.js') }}"></script>
+{% javascripts
+    'lib/jquery/dist/jquery.min.js'
+    'assets-private/js/color-line.js'
+    'lib/eds-ui/dist/js/edsUI.js'
+    'assets-private/js/common.js'
+    filter='uglifyjs2' %}
 
-<script>
-    $(function(){
-        $('.loading').remove();
-        {%  if first_sight == true  %}
-            $('.the-content').fadeIn(1000);
-        {% endif %}
+<script src="{{ asset_url }}"></script>
 
-        /**
-         * wechat icon click event
-         *
-         */
-        $(document).on('click', '.fa-wechat', function() {
-            edsUI.html('wechat', $('#wechat-modal').html());
-        })
+{% endjavascripts %}
 
-    })
-</script>
-<script type='text/html' id="wechat-modal">
-    <div style="text-align: center" id="qrCodeModal">
-        <img src="https://static.yeskn.com/wechat.jpg" width=300 height=300 alt="微信扫一扫">
-        <p>请使用微信扫描上面的二维码</p>
-        <p>this modal was generated by <a target="_blank" href="https://github.com/Jaggle/eds-ui">EdsUI</a></p>
-     </div>
-</script>
+{% include '@Home/Default/js-templates/wechat-modal.html.twig' %}
 
 </body>
 </html>

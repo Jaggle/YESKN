@@ -1,4 +1,12 @@
 yeskn-new-project
 =================
 
-A Symfony project created on October 13, 2016, 5:47 pm.
+AppBundle暂时不再使用了，因为这这是一个DEMO项目，但是代码还是值得参考的，因此，不再给这个项目分配 `demo.yeskn.com`的域名
+，但是这个bundle暂时不删除，相关的配置和路由可能会删掉。
+
+
+## 关于路由
+
+自己开发经常被路由弄懵了，特在这里记一下：
+
+- 在自己的开发环境，请勿访问app.php，仅访问app_dev.php进行调试

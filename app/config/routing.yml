@@ -1,18 +1,8 @@
 im:
     resource: "@ImBundle/Controller/"
     type:     annotation
-    prefix:   /im
-    host:     
-
-app:
-    resource: '@AppBundle/Controller/'
-    type:     annotation
-    #prefix:   /{_locale}
-    host:      demo.yeskn.com
-    requirements:
-        _locale: '%app_locales%'
-    defaults:
-        _locale: '%locale%'
+    host:     im.yeskn.com
+    prefix:   /
 
 home:
     resource: "@HomeBundle/Controller/"
@@ -25,10 +15,3 @@ service:
     type:     annotation
     host:     service.yeskn.com
     prefix:   /
-
-#blog:
-#    resource: "@BlogBundle/Controller/"
-#    type:     annotation
-#    #host:     blog.yeskn.com
-#    prefix:   /blog
-

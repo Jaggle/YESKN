@@ -32,7 +32,14 @@ framework:
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
-
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    node: '%node_path%'
+    filters:
+        cssrewrite: ~
+        uglifyjs2:
+            bin: '%uglifyjs2_path%'
 
 # Twig Configuration
 twig:

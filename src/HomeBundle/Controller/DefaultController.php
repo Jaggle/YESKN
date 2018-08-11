@@ -20,7 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * 网站首页
+     * the homepage of yeskn project
      *
      * @Route("/")
      * @param $request Request
