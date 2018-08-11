@@ -63,29 +63,20 @@
     <canvas width="1478" height="884"></canvas>
 
     <div class="foots" style="">
-
         <p>
-
-       <span>
             <a href="{{ path('home_default_index' , {'redirect':'https://google.com'}) }}" target="_blank">
                 <img src="https://static.yeskn.com/google-logo-20x20.jpg" alt="" width="20px" height="20px">
             </a>
-    </span>
 
-            <span>
             <a href="{{ path('home_default_index',{'redirect':'http://symfony.com'}) }}" target="_blank">
                 <img src="https://static.yeskn.com/symfony_black_03.png" alt="" width="20px" height="20px">
             </a>
-        </span>
 
-
-            <span>
             <a style="position: relative;top: -5px"
                href="{{ path('home_default_index',{'redirect':'http://www.miitbeian.gov.cn/publish/query/indexFirst.action'}) }}"
                target="_blank">
                 鄂ICP备15018755号
             </a>
-    </span>
         </p>
     </div>
 </div>
@@ -97,8 +88,7 @@
     'assets-private/js/common.js'
     filter='uglifyjs2' %}
 
-<script src="{{ asset_url }}"></script>
-
+    <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
 {% include '@Home/Default/js-templates/wechat-modal.html.twig' %}
