@@ -1,50 +1,6 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
-parameters:
-#    parameter_name: value
-
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-
-    slugger:
-        class: AppBundle\Utils\Slugger
-
-    markdown:
-        class: AppBundle\Utils\Markdown
-
-    app.twig.app_extension:
-        public:    false
-        class:     AppBundle\Twig\AppExtension
-        arguments: ['@markdown', '%app_locales%']
-        tags:
-            - { name: twig.extension }
-
-    app.twig.acme_extension:
-        public:   false
-        class:    AppBundle\Twig\AcmeExtension
-        tags:
-            - { name: twig.extension }
-
-
-    app.twig.intl_extension:
-        public: false
-        class:  Twig_Extensions_Extension_Intl
-        tags:
-            - { name: twig.extension }
-
     app.exception_listener:
         class: AppBundle\EventListener\ExceptionListener
         arguments: [ '@service_container', '@twig' ]
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
-
-    app.response_listener:
-        class: AppBundle\EventListener\ResponseListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.response }
-
-    app.glob:
-        class: 'AppBundle\Service\Glob'
-        arguments: ['@doctrine']

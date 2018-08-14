@@ -1,17 +1,7 @@
-im:
-    resource: "@ImBundle/Controller/"
-    type:     annotation
-    prefix:   /im
-
 homepage:
     resource: "@HomeBundle/Controller/"
     type:     annotation
     prefix:   /
-
-service:
-    resource: "@ServiceBundle/Controller/"
-    type:     annotation
-    prefix:   /service
 
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"

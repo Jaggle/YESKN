@@ -1,17 +1,5 @@
-im:
-    resource: "@ImBundle/Controller/"
-    type:     annotation
-    host:     im.yeskn.com
-    prefix:   /
-
 home:
     resource: "@HomeBundle/Controller/"
     type:     annotation
     prefix:   /
     host:     yeskn.com
-
-service:
-    resource: "@ServiceBundle/Controller/"
-    type:     annotation
-    host:     service.yeskn.com
-    prefix:   /
