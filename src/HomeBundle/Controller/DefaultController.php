@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Geekerism package.
+ * This file is part of yeskn/yeskn.
  *
  * (c) Jaggle <jaggle@yeskn.com>
  *
@@ -51,23 +51,6 @@ class DefaultController extends Controller
     public function resumeAction()
     {
         return new Response("I'm on working now, so my resume will not open this period, sorry.");
-        return $this->render('HomeBundle:Default:resume.html.twig');
-    }
-
-    /**
-     * 拉勾版简历
-     *
-     * @Route("/record.action/resume.html/lagou")
-     */
-    public function lagouAction(Request $request)
-    {
-        if ($request->get('version') == 2) {
-            return $this->render('HomeBundle:Default:lagou_v2.html.twig');
-        }
-        if ($request->get('version') == 3) {
-            return $this->render('HomeBundle:Default:lagou_v3.html.twig');
-        }
-        return $this->render('HomeBundle:Default:lagou.html.twig');
     }
 
     /**
