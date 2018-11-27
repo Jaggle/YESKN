@@ -9,6 +9,7 @@ imports:
 
 framework:
     assets:
+        version_strategy: HomeBundle\Services\VersionStrategyService
         base_urls:
             - 'https://static.yeskn.com/yeskn-home/'
 

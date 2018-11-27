@@ -16,7 +16,8 @@
     "tests"
   ],
   "dependencies": {
-	"eds-ui": "v1.0.1", 
-    "font-awesome": "v4.7.0"
+    "eds-ui": "v1.0.1", 
+    "font-awesome": "v4.7.0",
+    "jquery": "v3.2.1"
   }
 }
