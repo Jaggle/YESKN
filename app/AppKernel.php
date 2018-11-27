@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new HomeBundle\HomeBundle(),
+            new Yeskn\Support\YesknSupportBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
