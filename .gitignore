@@ -21,8 +21,10 @@
 
 .idea
 
-/web/bundles/
+web/bundles/
 web/challenges
 web/lib
 web/uploads
 
+web/assets/lib/
+web/build

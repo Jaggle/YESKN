@@ -1,4 +1,13 @@
 services:
-#    homepage.example:
-#        class: HomeBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: true
+    bind:
+      $projectDir: "%kernel.project_dir%"
+
+  HomeBundle\:
+    resource: '../../*'
+    # you can exclude directories or files
+    # but if a service is unused, it's removed anyway
+    exclude: '../../{Entity,Repository,Tests}'

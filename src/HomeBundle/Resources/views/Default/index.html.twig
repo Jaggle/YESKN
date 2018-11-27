@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>YESKN.COM | 夜色空凝</title>
@@ -25,10 +25,10 @@
     <link href="{{ asset('apple-touch-icon.png') }}" rel="apple-touch-icon-precomposed" type="image/png">
 
     {% stylesheets
-        'bundles/home/css/index.css'
-        'lib/font-awesome/css/font-awesome.min.css'
-        'lib/eds-ui/dist/css/edsUI.css'
-        filter='cssrewrite' %}
+        'assets/css/index.css'
+        'assets/lib/font-awesome/css/font-awesome.min.css'
+        'assets/lib/eds-ui/dist/css/edsUI.css'
+        filter='cssrewrite' output='build/css/header.css' %}
 
         <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -81,11 +81,11 @@
 </div>
 
 {% javascripts
-    'lib/jquery/dist/jquery.min.js'
-    'assets-private/js/color-line.js'
-    'lib/eds-ui/dist/js/edsUI.js'
-    'assets-private/js/common.js'
-    filter='uglifyjs2' %}
+    'assets/lib/jquery/dist/jquery.min.js'
+    'assets/js/color-line.js'
+    'assets/lib/eds-ui/dist/js/edsUI.min.js'
+    'assets/js/common.js'
+    filter='uglifyjs2' output='build/js/footer.js'  %}
 
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
